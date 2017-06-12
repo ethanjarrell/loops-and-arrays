@@ -19,65 +19,12 @@ var total = sports.push('football', 'swimming');
 // 2.
 // Using the `strings` array, wrte a function `longestString()`
 // that accepts an array argument and returns the longest string in the array
-var strings = ['this','is','a','collection','of','words'];
-
-// ======== FIRST ATTEMPT UNSUCESSFUL ======= //
-
-// A: function longestString (x){
-//   if (strings.length[0] > strings.length[1] || strings.length[0] > strings.length[2] || strings.length[0] > strings.length[3] || strings.length[0] > strings.length[4] || strings.length[0] > strings.length[5])
-//   {return strings[0]}
-//   else if (strings.length[1] > strings.length[0] || strings.length[1] > strings.length[2] || strings.length[1] > strings.length[3] || strings.length[1] > strings.length[4] || strings.length[1] > strings.length[5])
-//   {return strings[1]}
-//   else if (strings.length[2] > strings.length[0] || strings.length[2] > strings.length[1] || strings.length[2] > strings.length[3] || strings.length[2] > strings.length[4] || strings.length[2] > strings.length[5])
-//   {return strings[2]}
-//   else if (strings.length[3] > strings.length[0] || strings.length[3] > strings.length[1] || strings.length[3] > strings.length[2] || strings.length[3] > strings.length[4] || strings.length[3] > strings.length[5])
-//   {return strings[3]}
-//   else if (strings.length[4] > strings.length[0] || strings.length[4] > strings.length[1] || strings.length[4] > strings.length[2] || strings.length[4] > strings.length[3] || strings.length[4] > strings.length[5])
-//   {return strings[4]}
-//   else {return strings[5]}
-// }
-
-// longestString(strings);
-
-// ======== SECOND ATTEMPT UNSUCCESSFUL ===== //
-
-
-
-// var strings = ['this','is','a','collection','of','words'];
-// var longestWord = 0;
-//
-// for (var i = 0; i < strings.length; i++){
-//   if(strings[i].length > longestword)
-//   {longestword = strings[i].length;}
-//
-// return longestword;
-// }
-
-// ========== THIRD ATTEMPT ========== //
-
-//THIS IS GIVING ME UNDEFINED AND I DON'T KNOW WHAT'S GOING ON ANYMORE.
-
-// var strings = [‘this’,‘is’,‘a’,‘collection’,‘of’,‘words’];
-//
-// function longestString(anyArray){
-//   let longest = “”;
-//   for (let i = 0; i < anyArray.length; i++) {
-//     if (anyArray[i].length > longest.length) {
-//       longest = anyArray[i];
-//    }
-//  }
-//  return longest;
-// }
-
-// ========== FOURTH ATTEMPT ========= //
-
-// I hadn't called the function.  I'm honestly really lost and frustrated and about to cry.
 
 var strings = ['this','is','a','collection','of','words'];
 
-function longestString(anyArray){
+function longestString(array){
   let longest = "";
-  for (let i = 0; i < anyArray.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (anyArray[i].length > longest.length) {
       longest = anyArray[i];
    }
@@ -100,6 +47,21 @@ var numbers = [1,12,4,18,9,7,11,3,101,5,6];
 // and returns the smallest number in the array.
 // A:
 
+var numbers = [12,4,18,9,7,11,3,101,5,6,1];
+
+function smallestNumber(array){
+  let smallest = 1;
+  for (var i = 0; i < array.length; i++){
+    if ( array[i] < smallest){
+      smallest = array[i];
+    } else {
+      ;
+    }
+  }
+  return smallest;
+}
+
+smallestNumber(numbers);
 
 console.assert(smallestNumber(numbers) === 1, {"message": "smallestNumber should return 1"});
 
@@ -109,6 +71,21 @@ console.assert(smallestNumber(numbers) === 1, {"message": "smallestNumber should
 // and returns only the even numbers in the array.
 // A:
 
+var numbers = [1,12,4,18,9,7,11,3,101,5,6];
+
+function getEvens(anArray){
+
+  for (var i = 0; i < anArray.length; i++) {
+
+  while (anArray[i] % 2) {
+            anArray.splice(i, 1);
+}}
+
+return anArray;
+
+}
+
+getEvens(numbers);
 
 console.assert(getEvens(numbers).toString() === '12,4,18,6', {'message': 'getEvens should return "12,4,18,6"'});
 
@@ -120,6 +97,23 @@ console.assert(getEvens(numbers).toString() === '12,4,18,6', {'message': 'getEve
 // and decrement the iterator to zero
 // A:
 
+function reverse(a) {
+
+  var counter = a.length - 1;
+
+  for (var i = 0; i < a.length; i++) {
+
+    var temp = a[i];
+    a[i] = a[counter];
+    counter--;
+
+  }
+
+  return a;
+
+}
+
+reverse(numbers);
 
 console.assert(arrayReverser(numbers).toString() === '6,5,101,3,11,7,9,18,4,12,1', {'message': 'arrayReverser should return "6,5,101,3,11,7,9,18,4,12,1"'});
 
@@ -128,6 +122,24 @@ console.assert(arrayReverser(numbers).toString() === '6,5,101,3,11,7,9,18,4,12,1
 // Write a function that accepts an array argument
 // and returns the sum of all of the numbers in the array
 // A:
+
+var numbers = [1,12,4,18,9,7,11,3,101,5,6];
+
+function sum(array) {
+
+  var arraySum = 0;
+
+  for (var i = 0; i < array.length; i++) {
+
+  arraySum += array[i];
+
+}
+
+  return arraySum;
+
+}
+
+sum(numbers);
 
 
 console.assert(sumArrayOfNumbers(numbers) === 177, {'message': 'sumArrayOfNumbers should return 177'});
@@ -139,6 +151,27 @@ console.assert(sumArrayOfNumbers(numbers) === 177, {'message': 'sumArrayOfNumber
 // A:
 
 
+var numbers = [1,12,4,18,9,7,11,3,101,5,6];
+
+function greaterThanTen(array) {
+
+  var greater = [];
+
+  for (var i = 0; i < array.length; i++) {
+
+  if (array[i] > 10){
+    greater.push(array[i]);
+  }
+
+}
+
+  return greater;
+
+}
+
+greaterThanTen(numbers);
+
+
 console.assert(numbersOver10(numbers).toString() === "12,18,11,101", {'message': 'numbersOver10 should return "12,18,11,101"'});
 
 
@@ -147,6 +180,26 @@ console.assert(numbersOver10(numbers).toString() === "12,18,11,101", {'message':
 // and returns an array of only the numbers greater than the number passed to the function
 // A:
 
+var numbers = [1,12,4,18,9,7,11,3,101,5,6];
+
+function greaterThanNumber(array, number){
+
+  var greater = [];
+
+  for (var i = 0; i < array.length; i++){
+
+    if(array[i] > number) {
+      greater.push(array[i]);
+    }
+
+  }
+
+  return greater;
+
+}
+
+greaterThanNumber(numbers, 14);
+
 
 console.assert(numbersOverX(numbers, 15).toString() === "18,101", {'message': 'numbersOverX should return "18,101"'});
 
@@ -154,9 +207,29 @@ console.assert(numbersOverX(numbers, 15).toString() === "18,101", {'message': 'n
 // Write a function `joinArrays()` that takes an array of arrays,
 // and returns a single array with the contents of the second array
 // listed after the contents of the first array
+
+
+
 var numbers = [1,12,4,18,9,7,11,3,101,5,6];
 var numbersTwo = [33,56,72,2,5,66,90,21,42];
 // A:
+
+
+function joinArrays(array1, array2){
+
+  for (var i = 0; i < array2.length; i++){
+
+    array1.push(array2[i]);
+
+  }
+
+  return array1;
+
+}
+
+joinArrays(numbers, numbersTwo);
+
+//The question confused me a little, because the part about "an array of arrays" made it sound like a nested array, not two separate arrays.  I may be off track in my understanding of the question, and in my answer.
 
 
 console.assert(joinArrays([numbers, numbersTwo]).toString() === '1,12,4,18,9,7,11,3,101,5,6,33,56,72,2,5,66,90,21,42', {'message': 'joinArrays should return "1,12,4,18,9,7,11,3,101,5,6,33,56,72,2,5,66,90,21,42"'});
